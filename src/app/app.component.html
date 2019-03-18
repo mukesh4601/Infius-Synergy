@@ -1,21 +1,126 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 maintab">
 
-<router-outlet></router-outlet>
+
+            <div class="card ">
+                <!-- <div class="card-header">
+                    {{message}}
+                </div> -->
+                <div class="card-body">
+                    <h5 class="card-title text-danger">Select an Option</h5>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item" data-toggle="modal" data-target="#eventSummary">Event Summary</li>
+                        <li class="list-group-item" data-toggle="modal" data-target="#securityGuardsSummaryArray">
+                            Security
+                            Guards Summary</li>
+                        <li class="list-group-item" data-toggle="modal" data-target="#visitorSummaryArray">Visitor
+                            Summary
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer text-muted">
+                    <p class="text-secondary"> {{message}}</p>
+                    <p class="text-success">{{status}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-xl" id="eventSummary" tabindex="-1" role="dialog" aria-labelledby="eventSummary"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl " role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="eventSummary">Event Summary</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table " datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th scope="col">Card Id</th>
+                            <th scope="col">Device Id</th>
+                            <th scope="col">Device Type</th>
+                            <th scope="col">Event Catagory</th>
+                            <th scope="col">Event Ref</th>
+                            <th scope="col">Event Text</th>
+                            <th scope="col">Event Type</th>
+                            <th scope="col">Gate Id</th>
+                            <th scope="col">Relay Id</th>
+                            <th scope="col">Site Id</th>
+                            <th scope="col">Timestamp</th>
+                            <th scope="col">Visitor Id</th>
+                            <th scope="col">Visitor Type</th>
+                            <th scope="col">Zone Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of eventSummary; let i = index">
+                            <td>{{event.cardId}}</td>
+                            <td>{{event.deviceId}}</td>
+                            <td>{{event.deviceType}}</td>
+                            <td>{{event.eventCatagory}}</td>
+                            <td>{{event.eventRef}}</td>
+                            <td>{{event.eventText}}</td>
+                            <td>{{event.eventType}}</td>
+                            <td>{{event.gateId}}</td>
+                            <td>{{event.relayId}}</td>
+                            <td>{{event.siteId}}</td>
+                            <td>{{event.timestamp}}</td>
+                            <td>{{event.visitorId}}</td>
+                            <td>{{event.visitorType}}</td>
+                            <td>{{event.zoneId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-xl" id="securityGuardsSummaryArray" tabindex="-1" role="dialog"
+    aria-labelledby="securityGuardsSummaryArray" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="securityGuardsSummaryArray">Security Guards Summary Array</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-xl" id="visitorSummaryArray" tabindex="-1" role="dialog"
+    aria-labelledby="visitorSummaryArray" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="visitorSummaryArray">Visitor Summary Array</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
