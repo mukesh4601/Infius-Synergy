@@ -94,7 +94,47 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <table class="table " datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th scope="col">Guard Id</th>
+                            <th scope="col">Guard Name</th>
+                            <th scope="col">Email ID</th>
+                            <th scope="col">Primary Role</th>
+                            <th scope="col">Father Name</th>
+                            <th scope="col">Mobile Number</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Site</th>
+                            <th scope="col">Primary Zone</th>
+                            <th scope="col">Accessible Zones</th>
+                            <th scope="col">Start Time</th>
+                            <th scope="col">End Time</th>
+                            <th scope="col">Off</th>
+                            <th scope="col">Zone Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let guard of securityGuardsSummaryArray; let i = index">
+
+                            <td>{{guard.id}}</td>
+                            <td>{{guard.name}}</td>
+                            <td>{{guard.mailId}}</td>
+                            <td>{{guard.primaryRole}}</td>
+                            <td>{{guard.fatherName}}</td>
+                            <td>{{guard.activeMobileNumber}}</td>
+                            <td><img src={{guard.thumbnailPicUrl}} class="img-fluid"></td>
+                            <td><img src={{guard.actualPicUrl}} class="img-fluid"></td>
+                            <td>{{guard.site}}</td>
+                            <td>{{guard.primaryZone}}</td>
+                            <td>{{guard.accessibleZones}}</td>
+                            <td>{{guard.startTime}}</td>
+                            <td>{{guard.visitorId}}</td>
+                            <td>{{guard.endTime}}</td>
+                            <td>{{guard.offDay}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
@@ -115,7 +155,65 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <table class="table " datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th scope="col">Visitor Id</th>
+                            <th scope="col">Vistor Name</th>
+                            <th scope="col">Mobile </th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">From Address</th>
+                            <th scope="col">Visit ID</th>
+                            <th scope="col">Guest Type</th>
+                            <th scope="col">In Time</th>
+                            <th scope="col">Out Time</th>
+                            <th scope="col">Off</th>
+                            <th scope="col">Expected IN</th>
+                            <th scope="col">Expected Out</th>
+                            <th scope="col">Vehicles</th>
+                            <th scope="col">Other Guests</th>
+                            <th scope="col">To Address</th>
+                            <th scope="col">Target Zone</th>
+                            <th scope="col">Target Site</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Issued Card ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let visitor of visitorSummaryArray; let i = index">
+
+                            <td>{{visitor.visitorId}}</td>
+                            <td>{{visitor.name}}</td>
+                            <td>{{visitor.mobile}}</td>
+                            <td>{{visitor.email}}</td>
+                            <td>{{visitor.age}}</td>
+                            <td>{{visitor.gender}}</td>
+                            <td><img src={{visitor.guestPic}} class="img-fluid"></td>
+                            <td><img src={{visitor.guestThumbnailPic}} class="img-fluid"></td>
+                            <td>{{visitor.fromAddress}}</td>
+                            <td>{{visitor.visitId}}</td>
+                            <td>{{visitor.guestType}}</td>
+                            <td>{{visitor.actualInTime}}</td>
+                            <td>{{visitor.actualOutTime}}</td>
+                            <td>{{visitor.expectedIn}}</td>
+                            <td>{{visitor.expectedOut}}</td>
+
+
+                            <td>{{visitor.vehicles}}</td>
+                            <td>{{visitor.otherGuests}}</td>
+                            <td>{{visitor.toAddress}}</td>
+                            <td>{{visitor.targetZone}}</td>
+                            <td>{{visitor.targetSite}}</td>
+                            <td>{{visitor.visitorVisitStatus}}</td>
+                            <td>{{visitor.issuedCardId}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
