@@ -1,0 +1,248 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 maintab">
+
+
+            <div class="card ">
+                <!-- <div class="card-header">
+                    {{message}}
+                </div> -->
+                <div class="card-body">
+                    <h5 class="card-title text-danger">Select an Option</h5>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item" data-toggle="modal" data-target="#eventSummary">Event Summary</li>
+                        <li class="list-group-item" data-toggle="modal" data-target="#securityGuardsSummaryArray">
+                            Security
+                            Guards Summary</li>
+                        <li class="list-group-item" data-toggle="modal" data-target="#visitorSummaryArray">Visitor
+                            Summary
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer text-muted">
+                    <p class="text-secondary"> {{message}}</p>
+                    <p class="text-success">{{status}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3 image">
+            <kendo-chart>
+
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item [title]="{ text: 'Miles' }" [min]="0" [max]="100">
+                        <!--                      
+                           Note the binding is required,
+                           otherwise the property will be
+                           bound to a string.
+                      -->
+                    </kendo-chart-value-axis-item>
+                </kendo-chart-value-axis>
+
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item [categories]="categories">
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+
+                <kendo-chart-series>
+                    <kendo-chart-series-item [data]="seriesData" type="line">
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
+            </kendo-chart>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-xl" id="eventSummary" tabindex="-1" role="dialog" aria-labelledby="eventSummary"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl " role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="eventSummary">Event Summary</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table " datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th scope="col">Card Id</th>
+                            <th scope="col">Device Id</th>
+                            <th scope="col">Device Type</th>
+                            <th scope="col">Event Catagory</th>
+                            <th scope="col">Event Ref</th>
+                            <th scope="col">Event Text</th>
+                            <th scope="col">Event Type</th>
+                            <th scope="col">Gate Id</th>
+                            <th scope="col">Relay Id</th>
+                            <th scope="col">Site Id</th>
+                            <th scope="col">Timestamp</th>
+                            <th scope="col">Visitor Id</th>
+                            <th scope="col">Visitor Type</th>
+                            <th scope="col">Zone Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of eventSummary; let i = index">
+                            <td>{{event.cardId}}</td>
+                            <td>{{event.deviceId}}</td>
+                            <td>{{event.deviceType}}</td>
+                            <td>{{event.eventCatagory}}</td>
+                            <td>{{event.eventRef}}</td>
+                            <td>{{event.eventText}}</td>
+                            <td>{{event.eventType}}</td>
+                            <td>{{event.gateId}}</td>
+                            <td>{{event.relayId}}</td>
+                            <td>{{event.siteId}}</td>
+                            <td>{{event.timestamp}}</td>
+                            <td>{{event.visitorId}}</td>
+                            <td>{{event.visitorType}}</td>
+                            <td>{{event.zoneId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-xl" id="securityGuardsSummaryArray" tabindex="-1" role="dialog"
+    aria-labelledby="securityGuardsSummaryArray" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="securityGuardsSummaryArray">Security Guards Summary Array</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table " datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th scope="col">Guard Id</th>
+                            <th scope="col">Guard Name</th>
+                            <th scope="col">Email ID</th>
+                            <th scope="col">Primary Role</th>
+                            <th scope="col">Father Name</th>
+                            <th scope="col">Mobile Number</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Site</th>
+                            <th scope="col">Primary Zone</th>
+                            <th scope="col">Accessible Zones</th>
+                            <th scope="col">Start Time</th>
+                            <th scope="col">End Time</th>
+                            <th scope="col">Off</th>
+                            <th scope="col">Zone Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let guard of securityGuardsSummaryArray; let i = index">
+
+                            <td>{{guard.id}}</td>
+                            <td>{{guard.name}}</td>
+                            <td>{{guard.mailId}}</td>
+                            <td>{{guard.primaryRole}}</td>
+                            <td>{{guard.fatherName}}</td>
+                            <td>{{guard.activeMobileNumber}}</td>
+                            <td><img src={{guard.thumbnailPicUrl}} class="img-fluid"></td>
+                            <td><img src={{guard.actualPicUrl}} class="img-fluid"></td>
+                            <td>{{guard.site}}</td>
+                            <td>{{guard.primaryZone}}</td>
+                            <td>{{guard.accessibleZones}}</td>
+                            <td>{{guard.startTime}}</td>
+                            <td>{{guard.visitorId}}</td>
+                            <td>{{guard.endTime}}</td>
+                            <td>{{guard.offDay}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-xl" id="visitorSummaryArray" tabindex="-1" role="dialog"
+    aria-labelledby="visitorSummaryArray" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="visitorSummaryArray">Visitor Summary Array</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table " datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th scope="col">Visitor Id</th>
+                            <th scope="col">Vistor Name</th>
+                            <th scope="col">Mobile </th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">From Address</th>
+                            <th scope="col">Visit ID</th>
+                            <th scope="col">Guest Type</th>
+                            <th scope="col">In Time</th>
+                            <th scope="col">Out Time</th>
+                            <th scope="col">Off</th>
+                            <th scope="col">Expected IN</th>
+                            <th scope="col">Expected Out</th>
+                            <th scope="col">Vehicles</th>
+                            <th scope="col">Other Guests</th>
+                            <th scope="col">To Address</th>
+                            <th scope="col">Target Zone</th>
+                            <th scope="col">Target Site</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Issued Card ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let visitor of visitorSummaryArray; let i = index">
+
+                            <td>{{visitor.visitorId}}</td>
+                            <td>{{visitor.name}}</td>
+                            <td>{{visitor.mobile}}</td>
+                            <td>{{visitor.email}}</td>
+                            <td>{{visitor.age}}</td>
+                            <td>{{visitor.gender}}</td>
+                            <td><img src={{visitor.guestPic}} class="img-fluid"></td>
+                            <td><img src={{visitor.guestThumbnailPic}} class="img-fluid"></td>
+                            <td>{{visitor.fromAddress}}</td>
+                            <td>{{visitor.visitId}}</td>
+                            <td>{{visitor.guestType}}</td>
+                            <td>{{visitor.actualInTime}}</td>
+                            <td>{{visitor.actualOutTime}}</td>
+                            <td>{{visitor.expectedIn}}</td>
+                            <td>{{visitor.expectedOut}}</td>
+
+
+                            <td>{{visitor.vehicles}}</td>
+                            <td>{{visitor.otherGuests}}</td>
+                            <td>{{visitor.toAddress}}</td>
+                            <td>{{visitor.targetZone}}</td>
+                            <td>{{visitor.targetSite}}</td>
+                            <td>{{visitor.visitorVisitStatus}}</td>
+                            <td>{{visitor.issuedCardId}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
